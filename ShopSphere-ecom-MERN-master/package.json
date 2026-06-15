@@ -1,0 +1,18 @@
+{
+  "name": "shopsphere",
+  "version": "1.0.0",
+  "author": "Pranshu",
+  "description": "Full-stack MERN e-commerce platform with admin dashboard, Razorpay payments, and Cloudinary uploads",
+  "scripts": {
+    "install-all": "npm.cmd install && cd backend && npm.cmd install && cd ../frontend && npm.cmd install",
+    "build": "cd frontend && npm.cmd install && npm.cmd run build",
+    "start": "cd backend && npm.cmd start",
+    "dev": "concurrently \"npm.cmd run start:backend\" \"npm.cmd run start:frontend\"",
+    "start:backend": "npm.cmd --prefix backend run dev",
+    "start:frontend": "npm.cmd --prefix frontend run dev",
+    "seed": "npm.cmd --prefix backend run seed"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.1"
+  }
+}
