@@ -8,7 +8,7 @@ const connectDB = require('./config/db');
 dotenv.config();
 
 connectDB();
-
+//seed.js
 const importData = async () => {
   try {
     await User.deleteMany();
