@@ -12,7 +12,12 @@ const Shop = () => {
     const fetchProducts = async () => {
       try {
         const res = await fetch(`${API_URL}/api/products`);
-        const data = await res.json();
+
+        console.log("Status:", res.status);
+        console.log("URL:", res.url);
+
+        const text = await res.text();
+        console.log("Response:", text);
         setProducts(data);
       } catch (error) {
         console.error(error);
