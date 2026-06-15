@@ -10,8 +10,12 @@ connectDB();
 const app = express();
 
 // Set CORS for frontend URL / allow single-node deploy
+const cors = require('cors');
+
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://127.0.0.1:3000', process.env.FRONTEND_URL],
+  origin: [
+    'https://shop-sphere-gules.vercel.app'
+  ],
   credentials: true
 }));
 
@@ -26,7 +30,7 @@ app.use('/api/analytics', require('./routes/analyticsRoutes'));
 // Serve frontend in production
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../frontend/build')));
-  
+
   app.use((req, res) => {
     res.sendFile(path.resolve(__dirname, '../frontend/build/index.html'));
   });
