@@ -30,6 +30,8 @@ const Shop = () => {
     const matchesCategory = selectedCategory === 'All' || p.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
+  console.log("Products state:", products);
+  console.log("Filtered products:", filteredProducts);
 
   return (
     <div className="shop-container" style={{ minHeight: '80vh' }}>
