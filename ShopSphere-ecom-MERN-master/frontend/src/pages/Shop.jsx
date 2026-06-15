@@ -9,21 +9,23 @@ const Shop = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   useEffect(() => {
-    try {
-      const res = await fetch(`${API_URL}/api/products`);
+    const fetchProducts = async () => {
+      try {
+        console.log("API_URL =", API_URL);
 
-      console.log("Status:", res.status);
-      console.log("URL:", res.url);
+        const res = await fetch(`${API_URL}/api/products`);
+        const data = await res.json();
 
-      const data = await res.json();
-      console.log("Products:", data);
+        console.log(data);
+        setProducts(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-      setProducts(data);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
+    fetchProducts();
   }, []);
 
   const categories = ['All', 'Electronics', 'Clothing', 'Furniture'];
