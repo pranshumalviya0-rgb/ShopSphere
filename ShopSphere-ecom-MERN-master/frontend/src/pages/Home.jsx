@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
 import '../styles/product.css';
+import API_URL from '../config';
+
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -56,14 +58,14 @@ const Home = () => {
               transition: 'all 0.3s ease',
               boxShadow: '0 4px 20px rgba(0,0,0,0.15)'
             }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-5px)';
-              e.currentTarget.style.boxShadow = `0 10px 25px ${cat.border}`;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
-            }}>
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-5px)';
+                e.currentTarget.style.boxShadow = `0 10px 25px ${cat.border}`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
+              }}>
               <h3 style={{ fontSize: '1.6rem', color: '#fff', marginBottom: '8px' }}>{cat.name}</h3>
               <p style={{ color: '#a1a1aa', fontSize: '0.95rem', marginBottom: '20px' }}>{cat.count}</p>
               <Link to="/shop" style={{ color: '#ec4899', fontWeight: '600', fontSize: '0.95rem' }}>Explore &rarr;</Link>

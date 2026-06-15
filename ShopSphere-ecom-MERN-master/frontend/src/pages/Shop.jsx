@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from '../components/ProductCard';
 import '../styles/product.css';
-
+import API_URL from '../config';
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,7 +11,7 @@ const Shop = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch('/api/products');
+        const res = await fetch(`${API_URL}/api/products`);
         const data = await res.json();
         setProducts(data);
       } catch (error) {
@@ -34,7 +34,7 @@ const Shop = () => {
   return (
     <div className="shop-container" style={{ minHeight: '80vh' }}>
       <h2 style={{ fontSize: '2.2rem', marginBottom: '25px' }}>Explore Products</h2>
-      
+
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', alignItems: 'center', justifyContent: 'space-between', marginBottom: '35px' }}>
         {/* Category Filter Pills */}
         <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
@@ -76,9 +76,9 @@ const Shop = () => {
         </div>
 
         {/* Search input */}
-        <input 
-          type="text" 
-          placeholder="Search products..." 
+        <input
+          type="text"
+          placeholder="Search products..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="search-bar"
