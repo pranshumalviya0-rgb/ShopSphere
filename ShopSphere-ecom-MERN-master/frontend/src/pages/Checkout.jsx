@@ -1,9 +1,9 @@
-import React, { useState, useContext } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useContext, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import API_URL from '../config';
 import { AuthContext } from '../context/AuthContext';
 import { clearCart } from '../redux/cartSlice';
-import API_URL from '../config';
 
 const Checkout = () => {
   const { user } = useContext(AuthContext);
@@ -37,7 +37,7 @@ const Checkout = () => {
       }
 
       const options = {
-        key: 'rzp_test_dummykey123', // Student dummy fallback
+        key: rzp_test_T1zLxnljeyAbaj, // Student dummy fallback
         amount: orderData.amount,
         currency: orderData.currency,
         name: 'CartVault',
