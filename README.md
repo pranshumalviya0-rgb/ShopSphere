@@ -202,9 +202,6 @@ npm start
 
 ---
 
-## 📸 Screenshots
-
-
 ---
 
 ## 📄 License
