@@ -37,7 +37,7 @@ const Checkout = () => {
       }
 
       const options = {
-        key: rzp_test_T1zLxnljeyAbaj, // Student dummy fallback
+        key: "rzp_test_T1zLxnljeyAbaj", // Student dummy fallback
         amount: orderData.amount,
         currency: orderData.currency,
         name: 'CartVault',
